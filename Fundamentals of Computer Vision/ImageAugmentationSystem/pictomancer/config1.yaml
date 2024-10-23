@@ -1,0 +1,7 @@
+---
+- augmentation: Tint
+  parameters: ["red", 75]
+- augmentation: Edges
+- augmentation: HFlip
+- augmentation: Rotation
+  parameters: [90]
