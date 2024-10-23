@@ -1,0 +1,20 @@
+---
+- augmentation: Blur
+- augmentation:
+    - Blur
+    - Resize
+  parameters:
+    - None
+    - [1000, 750]
+- augmentation: VFlip
+- augmentation:
+    - Sharpening
+    - VFlip
+- augmentation: Translation
+  parameters: [50, 75]
+- augmentation:
+    - HFlip
+    - Translation
+  parameters:
+    - None
+    - [-75, -50]
