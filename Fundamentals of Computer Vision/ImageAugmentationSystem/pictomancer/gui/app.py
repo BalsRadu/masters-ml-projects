@@ -1,13 +1,12 @@
 import os
-import sys
 
 import cv2
 import matplotlib.pyplot as plt
 import ruamel.yaml
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
-from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtWidgets import (QFileDialog, QGridLayout, QHBoxLayout, QLabel,
-                             QPushButton, QVBoxLayout)
+from PyQt6 import QtCore, QtWidgets
+from PyQt6.QtWidgets import (QFileDialog, QHBoxLayout, QLabel, QPushButton,
+                             QVBoxLayout)
 from utils.augmentation import apply
 
 
