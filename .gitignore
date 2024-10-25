@@ -146,3 +146,6 @@ dmypy.json
 
 # Augmented image folder
 *_aug/
+
+# Data folder
+data/
