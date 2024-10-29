@@ -147,5 +147,6 @@ dmypy.json
 # Augmented image folder
 *_aug/
 
-# Data folder
-data/
+# Project specific files
+*.npy
+categories.txt
