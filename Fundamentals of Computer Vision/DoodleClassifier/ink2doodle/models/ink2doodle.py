@@ -1,5 +1,25 @@
+from pathlib import Path
+
+import torch
 import torch.nn as nn
 
+NUMBER_OF_CLASSES = 345
+
+class Ink2Doodle:
+    def __init__(self, model_path):
+        # Resolves the model path
+        model_path = Path(model_path).resolve()
+        # Initialize the base model class
+        self.model = Ink2DoodleNet(num_classes=NUMBER_OF_CLASSES)
+        # Load checkpoint into memory
+        checkpoint = torch.load(model_path, map_location=torch.device('cpu'), weights_only=True)
+        # Load state_dict into the model
+        self.model.load_state_dict(checkpoint, strict=True)
+        # Set the model to evaluation mode
+        self.model.eval()
+
+    def __call__(self, x):
+        return self.model(x)
 
 class Ink2DoodleNet(nn.Module):
     def __init__(self, num_classes=345):
@@ -13,8 +33,8 @@ class Ink2DoodleNet(nn.Module):
             nn.Conv2d(32, 32, kernel_size=3, padding=1), nn.BatchNorm2d(32), nn.ReLU(),
             nn.MaxPool2d(2), nn.Dropout(0.1),
 
-            nn.Conv2d(32, 64, kernel_size=3, padding=1), nn.BatchNorm2d(64),nn.ReLU(),
-            nn.Conv2d(64, 64, kernel_size=3, padding=1), nn.BatchNorm2d(64),nn.ReLU(),
+            nn.Conv2d(32, 64, kernel_size=3, padding=1), nn.BatchNorm2d(64), nn.ReLU(),
+            nn.Conv2d(64, 64, kernel_size=3, padding=1), nn.BatchNorm2d(64), nn.ReLU(),
             nn.MaxPool2d(2), nn.Dropout(0.1)
         )
         
