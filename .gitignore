@@ -145,4 +145,5 @@ dmypy.json
 .DS_Store
 
 # Augmented image folder
-*_aug/
+*.npy
+categories.txt
