@@ -144,6 +144,7 @@ dmypy.json
 # Mac files
 .DS_Store
 
-# Augmented image folder
+# Repo specific files
 *.npy
 categories.txt
+.webui_secret_key
