@@ -144,6 +144,9 @@ dmypy.json
 # Mac files
 .DS_Store
 
+# Augmented image folder
+*_aug/
+
 # Repo specific files
 *.npy
 categories.txt
