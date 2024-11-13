@@ -147,6 +147,7 @@ dmypy.json
 # Augmented image folder
 *_aug/
 
-# Project specific files
+# Repo specific files
 *.npy
 categories.txt
+.webui_secret_key
