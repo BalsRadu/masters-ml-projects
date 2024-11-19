@@ -1,6 +1,8 @@
 import sys
+
 import numpy as np
 from matplotlib import pyplot
+
 
 def displayData(X, example_width=None, figsize=(10, 10)):
     """
