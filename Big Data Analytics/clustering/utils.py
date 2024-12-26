@@ -1,10 +1,34 @@
+import contextlib
 import math
+import os
+import sys
 from random import random
 
 import matplotlib.pyplot as plt
 import numpy as np
 from kneed import KneeLocator
+from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
+
+
+# ----------------------------------------------------------------------
+#                    Context Manager
+# ----------------------------------------------------------------------
+@contextlib.contextmanager
+def suppress_output():
+    """
+    A context manager to suppress standard output and standard error.
+    """
+    with open(os.devnull, "w") as devnull:
+        old_stdout = sys.stdout
+        old_stderr = sys.stderr
+        try:
+            sys.stdout = devnull
+            sys.stderr = devnull
+            yield
+        finally:
+            sys.stdout = old_stdout
+            sys.stderr = old_stderr
 
 # ----------------------------------------------------------------------
 #                           Data Loading
@@ -214,3 +238,12 @@ def find_elbow_point(sse_values, ks, plot=False):
         plt.show()
 
     return optimal_k
+
+def compute_labelling_similarity(cluster_labels, true_labels):
+    """
+    Computes the similarity between the labels assigned by the clustering algorithm
+    and the true labels.
+    """
+    matches = np.sum(cluster_labels == true_labels)
+    return matches / len(true_labels)
+    return matches / len(true_labels)

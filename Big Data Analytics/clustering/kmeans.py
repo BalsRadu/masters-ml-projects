@@ -8,7 +8,6 @@ from clustering.utils import dist_euclidean
 # ----------------------------------------------------------------------
 #                    K-Means Utilities
 # ----------------------------------------------------------------------
-# TODO: Remove the random initialization method and implement the k-means++
 def init_centroids_random(data: np.ndarray, n_clusters: int) -> list[np.ndarray]:
     """
     Selects random points from the dataset to be centroids.
@@ -29,7 +28,7 @@ def init_centroids_pp(data: np.ndarray, n_clusters: int) -> list[np.ndarray]:
     :return: list of centroids, each centroid is shape (n_features,).
     """
     centers: list[np.ndarray] = []
-    # 1. Choose one center uniformly at random
+    # Choose one center uniformly at random
     idx = np.random.choice(len(data))
     centers.append(data[idx])
 
@@ -88,6 +87,7 @@ class KMeans:
         # Initialize centroids (use plus-plus method)
         # We will not use the random initialization because
         # it can lead to poor convergence in some cases.
+        # self.centers = init_centroids_random(data, self.n_clusters)
         self.centers = init_centroids_pp(data, self.n_clusters)
         labels = [-1] * len(data)
         iteration = 0
