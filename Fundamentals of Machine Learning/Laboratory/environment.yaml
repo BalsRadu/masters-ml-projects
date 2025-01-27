@@ -1,4 +1,4 @@
-name: FCM
+name: FML_Lab
 channels:
   - defaults
 dependencies:
