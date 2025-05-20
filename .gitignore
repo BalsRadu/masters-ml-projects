@@ -131,7 +131,7 @@ dmypy.json
 # VS Code
 .vscode/
 
-# Library development 
+# Library development
 /external/*/
 /external/*.code-workspace
 
@@ -151,3 +151,4 @@ dmypy.json
 *.npy
 categories.txt
 .webui_secret_key
+datasets/
